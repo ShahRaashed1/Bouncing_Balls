@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bouncing Balls</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: #f8fafc;
+      background: radial-gradient(ellipse at top, #1e293b, #090e1b 70%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .page {
+      width: min(900px, 100%);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      letter-spacing: -0.04em;
+      text-align: center;
+    }
+
+    .hint {
+      margin: 0 0 24px;
+      color: #a9b6ca;
+      text-align: center;
+    }
+
+    #arena {
+      position: relative;
+      width: 100%;
+      height: min(62vh, 480px);
+      min-height: 300px;
+      overflow: hidden;
+      border: 2px solid #475569;
+      border-radius: 20px;
+      background-color: #111a2b;
+      background-image:
+        radial-gradient(circle at 1px 1px, #ffffff12 1px, transparent 0);
+      background-size: 24px 24px;
+      box-shadow: 0 24px 70px #0006, inset 0 0 35px #0004;
+    }
+
+    .ball {
+      position: absolute;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      box-shadow: inset -7px -9px 14px #0003, inset 5px 6px 12px #ffffff55,
+        0 8px 18px #0006;
+    }
+
+    .ball:nth-child(1) {
+      background: #ff5d73;
+      animation: bounce-one 7s infinite linear;
+    }
+
+    .ball:nth-child(2) {
+      background: #ffc857;
+      animation: bounce-two 9s infinite linear;
+    }
+
+    .ball:nth-child(3) {
+      background: #43d9a3;
+      animation: bounce-three 8s infinite linear;
+    }
+
+    .ball:nth-child(4) {
+      background: #5e9bff;
+      animation: bounce-four 10s infinite linear;
+    }
+
+    .ball:nth-child(5) {
+      background: #bd79ff;
+      animation: bounce-five 11s infinite linear;
+    }
+
+    @keyframes bounce-one {
+      0%, 100% { left: 4%; top: 8%; }
+      25% { left: 72%; top: 14%; }
+      50% { left: 46%; top: calc(100% - 52px); }
+      75% { left: 0; top: 42%; }
+    }
+
+    @keyframes bounce-two {
+      0%, 100% { left: 82%; top: 68%; }
+      25% { left: 38%; top: 0; }
+      50% { left: 0; top: 54%; }
+      75% { left: 60%; top: calc(100% - 52px); }
+    }
+
+    @keyframes bounce-three {
+      0%, 100% { left: 42%; top: 0; }
+      25% { left: 0; top: 70%; }
+      50% { left: 75%; top: 38%; }
+      75% { left: 54%; top: calc(100% - 52px); }
+    }
+
+    @keyframes bounce-four {
+      0%, 100% { left: 0; top: 36%; }
+      25% { left: 64%; top: calc(100% - 52px); }
+      50% { left: 80%; top: 4%; }
+      75% { left: 34%; top: 60%; }
+    }
+
+    @keyframes bounce-five {
+      0%, 100% { left: 66%; top: calc(100% - 52px); }
+      25% { left: 86%; top: 26%; }
+      50% { left: 28%; top: 58%; }
+      75% { left: 14%; top: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>Bouncing Balls</h1>
+    <p class="hint">Five colorful balls bouncing around inside the arena</p>
+    <div id="arena" aria-label="Five colorful balls bouncing inside a boundary">
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+    </div>
+  </main>
+
+</body>
+</html>
